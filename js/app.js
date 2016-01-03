@@ -5,15 +5,19 @@ var app = angular.module('universidadApp',[]);
 app.controller('profesorCtrl',function($scope){
     $scope.profesor = profesoresData;
     $scope.editando = {};//variable de scope vacia
-   
+    $scope.MostrarCambios=false;
+    
     $scope.editarProferos = function(){
         angular.copy($scope.profesor,$scope.editando);
+        $scope.MostrarCambios=true;
     }
     $scope.GuardarCambio = function(){
         angular.copy($scope.editando,$scope.profesor);
+        $scope.MostrarCambios=false;
     }
     $scope.CancelarCambio = function(){
         $scope.editando={};
+        $scope.MostrarCambios=false;
     }
     
 });

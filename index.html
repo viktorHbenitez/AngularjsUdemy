@@ -2,6 +2,8 @@
 <html lang="en" ng-app="universidadApp">
 <head>
 	<meta charset="UTF-8">
+    <!-- libreria de animated css	-->
+    <link rel="stylesheet" href="css/animate.css">
 	<!--Insertar libreria de AngularJS-->
 	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
 	<!--Insertar libreria de AngularJS-->
@@ -19,7 +21,7 @@
            <div class="col-sm-3">
                <section class="panel">
                    <div class="panel-body" aling="center">
-                      <img ng-src={{profesor.foto}} class="img-circle" alt="" width="150px" height="150px">   
+                      <img ng-src={{profesor.foto}} class="img-circle animated rollIn" alt="" width="150px" height="150px">   
                    </div>
                </section>
            </div>
@@ -41,7 +43,7 @@
                           
        </div>
     <!-- Seccion de guardar y cancelar -->
-        <div class="row">
+        <div class="row animated fadeIn" ng-show="MostrarCambios">
             <div class="col-sm-6">
                 <section class="panel">
                     <div class="panel-body">
