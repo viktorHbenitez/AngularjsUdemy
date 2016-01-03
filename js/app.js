@@ -9,6 +9,12 @@ app.controller('profesorCtrl',function($scope){
     $scope.editarProferos = function(){
         angular.copy($scope.profesor,$scope.editando);
     }
+    $scope.GuardarCambio = function(){
+        angular.copy($scope.editando,$scope.profesor);
+    }
+    $scope.CancelarCambio = function(){
+        $scope.editando={};
+    }
     
 });
 
