@@ -2,9 +2,13 @@
 var app = angular.module('universidadApp',[]);
 
 //manejan una parte de la pagina o su totalidad
-app.controller('profesorCtrl',function(){
-    this.profesor = profesoresData;
-    
+app.controller('profesorCtrl',function($scope){
+    $scope.profesor = profesoresData;
+    $scope.editando = {};//variable de scope vacia
+   
+    $scope.editarProferos = function(){
+        angular.copy($scope.profesor,$scope.editando);
+    }
     
 });
 
@@ -12,7 +16,7 @@ app.controller('profesorCtrl',function(){
 
 var profesoresData= {
     nombre: "Juan Carlos Pineda",
-    bio: "Saludos estudiantes , mi nombre es juan carlos, encantado de conocerte, soy un apasionado instructor     ", 
+    bio: "Saludos estudiante, mi nombre es Juan Carlos, encantado de conocerte, soy una apasionado instructor de matemáticas aplicadas cuánticas, más orientado a la física termonuclear. Mi vocación es ser maestro y lograr transmitir mis conocimientos a todos mis estudiantes!.", 
     edad:"27",
     foto:"img/juancarlos.jpg"
 }
