@@ -1,42 +1,43 @@
 <!DOCTYPE html>
-<html lang="en" ng-app>
+<html lang="en" ng-app="universidadApp">
 <head>
 	<meta charset="UTF-8">
 	<!--Insertar libreria de AngularJS-->
 	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
 	<!--Insertar libreria de AngularJS-->
 	<script src="js/lib/angular.min.js" type="text/javascript"></script>
+	<script src="js/app.js" type="text/javascript"></script>
 	<title>Curso de AngularJS</title>
 </head>
 <body>
-	<div class="container">
-		<h1>Evalucación</h1>
-		<h4>AngularJS</h4>
+    <div class="container" ng-controller="profesorCtrl as profesor">
+       <h1>Profesores</h1>
+       <h4> {{profesor.profesor.nombre}} </h4>
+       <hr>
+       <div class="row">
+            <!-- div que contiene la imagen del profesor-->
+           <div class="col-sm-3">
+               <section class="panel">
+                   <div class="panel-body" aling="center">
+                      <img ng-src={{profesor.profesor.foto}} class="img-circle" alt="" width="150px" height="150px">   
+                   </div>
+               </section>
+           </div>
+        <!--div donde se mostrara la bio del profesor  -->
+        <div class="col-sm-9">
+            <section class="panel">
+                <div class="panel-body">
+                    {{profesor.profesor.bio }}
+                    <br>
+                    <br>
+                    <strong>Edad: </strong>  {{profesor.profesor.edad}} años
+                </div>
+            </section>
+        </div>      
+              
+       </div>
+    </div>
+    
 
-		<p>
-			Nombre completo: {{nombre | uppercase}}
-			<br>
-			<input type="text" class="form-control" ng-model="nombre" placeholder="Escribe tu nombre" autofocus/>
-		</p>
-		<p>
-			Lugar de trabajo: {{trabajo | lowercase}}
-			<br>
-			<input type="text" class="form-control" ng-model="trabajo" placeholder="Escribe el lugar de trabajo">
-		</p>
-		<p>
-			Salario en dolares: {{salario | currency}}
-			<br>
-			<input type="text" class="form-control" ng-model="salario" placeholder="Salario mensual">
-		</p>
-
-		<p>
-			Nombre: {{nombre | uppercase}}
-			<br>
-			Lugar de trabajo: {{trabajo | lowercase}}
-			<br>
-			Salario en dolares: {{salario | currency}} 
-		</p>
-
-	</div>
 </body>
 </html>
