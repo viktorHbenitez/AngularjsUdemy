@@ -21,9 +21,28 @@
           <li ng-repeat="nombre in listado">{{nombre}} </li>
           
       </ul>
+    <!--tabla usando ng-repeat-->
+        <table class="table table-striped">
+            <tr>
+                <th>Nombre</th>
+                <th>Edad</th>
+                <th>Clase</th>
+            </tr>
+            <tr ng-repeat="profe in listadoProfesores.profesores">
+                <td>{{profe.nombre}} </td>
+                <td>{{profe.edad}} </td>
+                <td>{{profe.clase}} </td>
+            </tr>
+        </table> 
+        
+             
+        <lu >
+            <li ng-repeat="numero in [1,2,3,4,5,6,7,8,9]">2 * {{numero}} = {{2 * numero}} </li>
+        </lu>     
+      
       
     <!-- listado de nombres y usando json-->
-    {{ listado|json }}
+    {{listadoProfesores|json }}
       
     </div>
     
