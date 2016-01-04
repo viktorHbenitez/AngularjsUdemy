@@ -12,59 +12,19 @@
 	<title>Curso de AngularJS</title>
 </head>
 <body>
-    <div class="container" ng-controller="profesorCtrl as profesor">
-       <h1>Profesores</h1>
-       <h4> {{profesor.nombre | uppercase}} </h4>
-       <hr>
-       <div class="row">
-            <!-- div que contiene la imagen del profesor-->
-           <div class="col-sm-3">
-               <section class="panel">
-                   <div class="panel-body" aling="center">
-                      <img ng-src={{profesor.foto}} class="img-circle animated rollIn" alt="" width="150px" height="150px">   
-                   </div>
-               </section>
-           </div>
-        <!--div donde se mostrara la bio del profesor  -->
-        <div class="col-sm-9">
-            <section class="panel">
-                <div class="panel-body">
-                    {{profesor.bio }}
-                    <br>
-                    <br>
-                    <strong>Edad: </strong>  {{profesor.edad}} años
-                    <br>
-                    <br>
-                    <button class="btn btn-primary" ng-click="editarProferos()">Editar</button>
-                    
-                </div>
-            </section>
-        </div>      
-                          
-       </div>
-    <!-- Seccion de guardar y cancelar ng-show=Expression Boleana -->
-        <div class="row animated fadeIn" ng-show="MostrarCambios">
-            <div class="col-sm-6">
-                <section class="panel">
-                    <div class="panel-body">
-                        Nombre
-                        <input type="text" class="form-control" ng-model="editando.nombre">
-                        <br>
-                        Edad:
-                        <input type="text" class="form-control" ng-model="editando.edad">
-                        <br>
-                        Bio:
-                        <textarea type="text" class="form-control" rows="3" ng-model="editando.bio"></textarea>
-                        <br>
-                        <br>
-                        <button type="button" class="btn btn-success" ng-click="GuardarCambio()">Guardar</button>
-                        <button type="button" class="btn btn-danger" ng-click="CancelarCambio()">Cancelar</button>
-                        
-                        
-                    </div>
-                </section>
-            </div>
-        </div>           
+    <div class="container" ng-controller="listadoCtrl">
+      <h1>ng-repeat</h1>
+      <h4>Manejando repeticiones</h4>
+      <hr>
+      
+      <ul>
+          <li ng-repeat="nombre in listado">{{nombre}} </li>
+          
+      </ul>
+      
+    <!-- listado de nombres y usando json-->
+    {{ listado|json }}
+      
     </div>
     
 
