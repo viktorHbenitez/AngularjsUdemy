@@ -5,7 +5,7 @@ var app = angular.module('universidadApp',[]);
 app.controller('profesorCtrl',function($scope){
     $scope.profesor = profesoresData;
     $scope.editando = {};//variable de scope vacia
-    $scope.MostrarCambios=false;
+    $scope.MostrarCambios=false;//ng-hiden ng-show
     
     $scope.editarProferos = function(){
         angular.copy($scope.profesor,$scope.editando);
