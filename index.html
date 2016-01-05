@@ -10,42 +10,59 @@
 	<script src="js/lib/angular.min.js" type="text/javascript"></script>
 	<script src="js/app.js" type="text/javascript"></script>
 	<title>Curso de AngularJS</title>
+	
+	<style>
+            .avatar{
+                width: 75px;
+                height: 75px;
+            }
+
+    </style>
 </head>
 <body>
-    <div class="container" ng-controller="listadoCtrl">
-      <h1>ng-repeat</h1>
-      <h4>Manejando repeticiones</h4>
-      <hr>
-      
-      <ul>
-          <li ng-repeat="nombre in listado">{{nombre}} </li>
-          
-      </ul>
-    <!--tabla usando ng-repeat-->
-        <table class="table table-striped">
-            <tr>
-                <th>Nombre</th>
-                <th>Edad</th>
-                <th>Clase</th>
-            </tr>
-            <tr ng-repeat="profe in listadoProfesores.profesores">
-                <td>{{profe.nombre}} </td>
-                <td>{{profe.edad}} </td>
-                <td>{{profe.clase}} </td>
-            </tr>
-        </table> 
-        
-             
-        <lu >
-            <li ng-repeat="numero in [1,2,3,4,5,6,7,8,9]">2 * {{numero}} = {{2 * numero}} </li>
-        </lu>     
-      
-      
-    <!-- listado de nombres y usando json-->
-    {{listadoProfesores|json }}
-      
-    </div>
+          <div class="container" ng-controller="listadoCtrl">
+            
+            <h1>Filtros</h1>
+            <h4>Para el ng-repeat</h4>
+            <hr>
+            <div class="row">
+                
+                <p>
+                    Busqueda:{{busqueda.nombre | uppercase }}
+                    <br>
+                    <input type="text" class="form-control" ng-model="busqueda.nombre" placeholder="Busqueda">
+                    <br>
+                    <select ng-model="busqueda.sexo" class="form-control">
+                        <option value="">Cualquiera</option>
+                        <option value="mujer">Mujeres</option>
+                        <option value="hombre">Hombres</option>
+                    </select>
+                </p>                
+            </div>
+                
+
+            <table class="table table-striped">
+                <tr>
+                    <th>Avatar</th>
+                    <th>Nombre</th>
+                    <th>Sexo</th>
+                    <th>Telefono</th>
+                </tr>
+                <tr ng-repeat="persona in personas | filter:busqueda">
+                    <td><img ng-src="img/{{persona.avatar}}" class="avatar img-circle"/> </td>
+                    <td>{{persona.nombre}}</td>
+                    <td>{{persona.sexo}}</td>
+                    <td>{{persona.telefono}}</td>
+                    
+                </tr>
+            </table>
+
+            
+            
+            
     
+          </div><!-- fin del listadoCtrl -->
+
 
 </body>
 </html>
