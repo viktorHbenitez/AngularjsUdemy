@@ -1,71 +1,49 @@
 <!DOCTYPE html>
-<html lang="en" ng-app="universidadApp">
-<head>
-	<meta charset="UTF-8">
-    <!-- libreria de animated css	-->
-    <link rel="stylesheet" href="css/animate.css">
-	<!--Insertar libreria de AngularJS-->
-	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
-	<!--Insertar libreria de AngularJS-->
-	<script src="js/lib/angular.min.js" type="text/javascript"></script>
-	<script src="js/app.js" type="text/javascript"></script>
-	<title>Curso de AngularJS</title>
-	
-	<style>
-            .avatar{
-                width: 75px;
-                height: 75px;
-            }
-        .puntero{
-            cursor: pointer;
-        }
+<html ng-app="universidadApp">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>ng-options</title>
 
-    </style>
-</head>
-<body>
-          <div class="container" ng-controller="listadoCtrl">
+
+        <!-- Incluir Bootstrap -->
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+
+        <!-- Animate.css -->
+        <link rel="stylesheet" href="css/animate.css">
+
+        <!-- Incluir AngularJS -->
+        <script src="js/lib/angular.min.js"></script>
+
+        <script src="js/app.js"></script>
+        
+    </head>    
+    <body>
+
+        <div class="container" ng-controller="listadoCtrl">
             
-            <h1>Filtros</h1>
-            <h4>Para el ng-repeat</h4>
+            <h1>ng-options</h1>
+            <h4>Repeticiones para elementos</h4>
             <hr>
-            <div class="row">
-                
-                <p>
-                    Busqueda:{{busqueda.nombre | uppercase }}
-                    <br>
-                    <input type="text" class="form-control" ng-model="busqueda.nombre" placeholder="Busqueda">
-                    <br>
-                    <select ng-model="busqueda.sexo" class="form-control">
-                        <option value="">Cualquiera</option>
-                        <option value="mujer">Mujeres</option>
-                        <option value="hombre">Hombres</option>
-                    </select>
-                </p>                
-            </div>
-                
+            <p>
+                Seleccione el pais: {{paisSeleccionado}}
+                <select ng-model="paisSeleccionado" class="form-control">
+                    <option value="">Seleccione</option>
+                    <option ng-repeat="pais in paises" value="{{pais.id}}">{{pais.nombre}} </option>
+                      
+                </select>
+                <br>
+                Seleccion del pais:{{paisSeleccionado}}
+                <select ng-model="paisSeleccionado" class="form-control" ng-options="pais.id as pais.nombre for pais in paises">
+                    <option value="">Seleccione</option>
 
-            <table class="table table-striped">
-                <tr>
-                    <th>Avatar</th>
-                    <th><a ng-click="columna='nombre'; reversa=!reversa" class="puntero">Nombre</a></th>
-                    <th><a ng-click="columna='sexo'; reversa=!reversa" class="puntero">Sexo</a></th>
-                    <th>Telefono</th>
-                </tr>
-                <tr ng-repeat="persona in personas | filter:busqueda | orderBy:columna:reversa">
-                    <td><img ng-src="img/{{persona.avatar}}" class="avatar img-circle"/> </td>
-                    <td>{{persona.nombre}}</td>
-                    <td>{{persona.sexo}}</td>
-                    <td>{{persona.telefono}}</td>
                     
-                </tr>
-            </table>
-
+                </select>
+            </p>
             
-            
-            
-    
-          </div><!-- fin del listadoCtrl -->
 
 
-</body>
+
+        </div><!-- fin del listadoCtrl -->
+
+    </body>
 </html>
