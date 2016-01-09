@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html ng-app="universidadApp">
+<html ng-app="ejemplosApp">
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-        <title>ng-options</title>
+        <title>http-request</title>
 
 
         <!-- Incluir Bootstrap -->
@@ -19,27 +19,13 @@
     </head>    
     <body>
 
-        <div class="container" ng-controller="listadoCtrl">
+        <div class="container" ng-controller="mainCtrl">
             
-            <h1>ng-options</h1>
-            <h4>Repeticiones para elementos</h4>
+            <h1>$HTTP Request</h1>
+            <h4>Data dinámica</h4>
             <hr>
-            <p>
-                Seleccione el pais: {{paisSeleccionado}}
-                <select ng-model="paisSeleccionado" class="form-control">
-                    <option value="">Seleccione</option>
-                    <option ng-repeat="pais in paises" value="{{pais.id}}">{{pais.nombre}} </option>
-                      
-                </select>
-                <br>
-                Seleccion del pais:{{paisSeleccionado}}
-                <select ng-model="paisSeleccionado" class="form-control" ng-options="pais.id as pais.nombre for pais in paises">
-                    <option value="">Seleccione</option>
-
-                    
-                </select>
-            </p>
             
+
 
 
 
