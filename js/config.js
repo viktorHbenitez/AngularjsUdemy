@@ -5,13 +5,16 @@ app.config(function ($routeProvider) {
 	$routeProvider
 		.when('/',{
 				templateUrl: 'parciales/home.html',
+				controller: 'inicioCtrl'
 		})
 		.when('/profesor', {
 			templateUrl: 'parciales/profesores.html',
+			controller: 'profesoresCtrl'
 			
 		})
 		.when('/alumno', {
 			templateUrl: 'parciales/alumnos.html',
+			controller: 'alumnosCtrl'
 		})
 		.otherwise({ 
 			redirectTo: '/' 
