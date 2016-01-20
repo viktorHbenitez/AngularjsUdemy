@@ -1,21 +1,19 @@
 (function(){
 
-	var app = angular.module('ejemplosApp', []);
+	var app = angular.module('ejemploApp', []);
 
-	app.controller('mainCtrl', ['$scope','$http', function ($scope,$http) {
-		
-		$scope.profesores = {};
-		$scope.tblProfesore = 'parciales/tblProfesores.html';
+	app.controller('mainCtrl', ['$scope','$http', function ($scope, $http) {
 
+		$scope.geo = {};
 
-		$http.get('json/profesores.json').success(function(data){
-				$scope.profesores = data.profesores;
+		$http.jsonp('http://www.geoplugin.net/json.gp?jsoncallback=JSON_CALLBACK').success(function(data){
+
+				$scope.geo = data;
+
 		});
 
-
-
+		
 	}]);
-
 
 
 })();

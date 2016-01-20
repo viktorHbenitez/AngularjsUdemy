@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html ng-app="ejemplosApp">
+<html ng-app="ejemploApp">
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <title>Universidad</title>
@@ -24,12 +24,20 @@
 
         <div class="container" ng-controller="mainCtrl">
             
-            <h1>ng-include</h1>
-            <h4>Data dinámica</h4>
+            <h1>Detectar IPs</h1>
+            <h4>Manejo de recursos online</h4>
             <hr>
 
 
-        <div ng-include="tblProfesore"></div>
+            ip: {{geo.geoplugin_request}}
+            <br>
+            Estado: {{geo.geoplugin_city}}
+            <br>
+            Pais: {{geo.geoplugin_countryName}}
+            <br><br>
+            {{geo | json }}
+
+
 
         </div><!-- /.container -->
 
