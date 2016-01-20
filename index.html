@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html ng-app="universidadApp" ng-controller="mainCtrl">
+<html ng-app="ejemplosApp">
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <title>Universidad</title>
@@ -11,24 +11,14 @@
         <!-- Animate.css -->
         <link rel="stylesheet" href="css/animate.css">
 
+        <!-- Incluir AngularJS -->
+        <script src="js/lib/angular.min.js"></script>
+      
+        <script src="js/app.js"></script>
         <!-- Estilo personalizado -->
         <link rel="stylesheet" href="css/style.css">
 
-        <!-- Incluir AngularJS -->
-        <script src="js/lib/angular.min.js"></script>
-        <script src="js/lib/angular-route.js"></script>
-
-        <script src="js/app.js"></script>
-        <script src="js/config.js"></script>
-
-        <!-- Controladores de paginas -->
-        <script type="text/javascript" src="js/alumnosCtrl.js" ></script>
-        <script type="text/javascript" src="js/profesoresCtrl.js" ></script>
-        <script type="text/javascript" src="js/inicioCtrl.js" ></script>
-
-
-
-        
+      
     </head>    
     <body>
 
@@ -41,16 +31,6 @@
 
             {{profesores | json}}
         
-        <div ng-include="menuSuperior"></div>   
-        
-        <div class="container">
-        <!-- La pagina principal ira aquí -->
-        <div ng-view>
-
-            
-        </div>
-
-
         </div><!-- /.container -->
 
 
