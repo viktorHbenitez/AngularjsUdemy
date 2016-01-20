@@ -1,16 +1,16 @@
-(function (){
+(function(){
 
-	var app=angular.module('ejemplosApp',[]);
+	var app = angular.module('ejemplosApp', []);
 
-	app.controller('mainCtrl', ['$scope', '$http', function ($scope, $http) {
+	app.controller('mainCtrl', ['$scope','$http', function ($scope,$http) {
 		
 		$scope.profesores = {};
+		$scope.tblProfesore = 'parciales/tblProfesores.html';
+
 
 		$http.get('json/profesores.json').success(function(data){
-				//codigo cuando es correcta la peticion
 				$scope.profesores = data.profesores;
 		});
-
 
 
 
@@ -19,4 +19,3 @@
 
 
 })();
-
